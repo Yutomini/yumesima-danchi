@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>夢洲団地 入居者募集【公式】</title>
+    <style>
+        :root {
+            --main-blue: #0077b6;
+            --accent-gray: #f4f4f4;
+            --text-dark: #333;
+            --danchi-gray: #777;
+        }
+
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+        }
+
+        header {
+            background: #fff;
+            padding: 15px 20px;
+            text-align: center;
+            border-bottom: 5px solid var(--main-blue);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .official-logo {
+            height: 60px;
+            width: auto;
+        }
+
+        .logo-text h1 {
+            margin: 0;
+            font-size: 1.8rem;
+            letter-spacing: 0.2em;
+            font-weight: 900;
+        }
+
+        /* スライドショーのスタイル */
+        .hero {
+            position: relative;
+            background: #333;
+            height: 500px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slideshow-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+            object-fit: cover;
+        }
+
+        .slide.active {
+            opacity: 0.7; /* テキストを見やすくするため少し暗く設定 */
+        }
+
+        .hero-copy {
+            position: relative;
+            z-index: 10;
+            background: rgba(0, 119, 182, 0.85);
+            color: white;
+            padding: 25px 50px;
+            font-weight: bold;
+            font-size: 1.8rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            border-radius: 4px;
+            text-align: center;
+            pointer-events: none; /* スライド操作の邪魔をしない */
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        section {
+            margin-bottom: 70px;
+        }
+
+        h2 {
+            border-left: 10px solid var(--main-blue);
+            padding-left: 20px;
+            margin-bottom: 35px;
+            font-size: 1.6rem;
+            color: var(--main-blue);
+            background: #f0f7ff;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        .spec-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: var(--accent-gray);
+            padding: 25px;
+            border-radius: 12px;
+            border-bottom: 5px solid var(--danchi-gray);
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            margin-top: 0;
+            font-size: 1.2rem;
+            color: var(--main-blue);
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
+        }
+
+        .price-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .price-table th, .price-table td {
+            border: 1px solid #ddd;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .price-table th {
+            background: var(--main-blue);
+            color: white;
+            font-weight: bold;
+        }
+
+        .price-table tr:nth-child(even) {
+            background: #fafafa;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #e63946;
+            color: white;
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .cta-button {
+            display: block;
+            width: 100%;
+            max-width: 350px;
+            margin: 50px auto;
+            background: #e63946;
+            color: white;
+            text-align: center;
+            padding: 22px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(230, 57, 70, 0.4);
+            transition: all 0.3s;
+        }
+
+        .cta-button:hover {
+            background: #c12a36;
+            transform: scale(1.05);
+        }
+
+        footer {
+            background: #222;
+            color: #aaa;
+            text-align: center;
+            padding: 40px;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 600px) {
+            .hero-copy { font-size: 1.2rem; padding: 15px 25px; }
+            h1 { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo-container">
+        <img src="2年A組_社会_水谷 悠杜_2026年1月19日のノート.png" alt="夢洲団地 ロゴ" class="official-logo">
+        <div class="logo-text">
+            <h1>夢洲団地</h1>
+            <div style="font-size: 0.75rem; color: #777; letter-spacing: 0.3em;">OSAKA YUMESHIMA DANCHI</div>
+        </div>
+    </div>
+</header>
+
+<div class="hero">
+    <div class="slideshow-container">
+        <img src="Gemini_koukuu.png" alt="航空写真" class="slide active">
+        <img src="Gemini_kouen.png" alt="団地内公園" class="slide">
+        <img src="Gemini_naisou.png" alt="内装1" class="slide">
+        <img src="Gemini_heya.png" alt="内装2" class="slide">
+    </div>
+    <div class="hero-copy">海と、光と、夢洲。<br><span style="font-size: 1rem; font-weight: normal;">未来を、一番近くで。</span></div>
+</div>
+
+<div class="container">
+    <section id="spec">
+        <h2>1. 建物の詳細</h2>
+        <div class="spec-grid">
+            <div class="card">
+                <h3><span class="badge">NEW</span> 高速・10G光回線</h3>
+                <p>全戸に1Gbps回線を標準完備。ネット廃人、プロゲーマー、リモートワーカーも納得の<b>10Gbpsアップグレードオプション</b>（月額+1,000円）をご用意。</p>
+            </div>
+            <div class="card">
+                <h3>ストレスフリーな垂直移動</h3>
+                <p>10〜14階建ての各棟に、高機能エレベーターを2機完備。朝の通勤ラッシュ時も、もう階段を駆け下りる必要はありません。</p>
+            </div>
+            <div class="card">
+                <h3>鉄壁の防災・防音性能</h3>
+                <p>厚型ボイドスラブ構造により「隣のくしゃみ」をカット。さらに海抜10m超の防波堤が、万が一の津波から暮らしを守ります。</p>
+            </div>
+            <div class="card">
+                <h3>ユニバーサルデザイン</h3>
+                <p>室内外の段差を完全排除。ベビーカーから車椅子まで、すべての世代が「当たり前」に移動できる住環境を提供します。</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="common">
+        <h2>2. 「これぞ団地」な共有スペック</h2>
+        <div class="spec-grid">
+            <div class="card">
+                <h3>巨大駐輪・バイク置場</h3>
+                <p>原付、電動アシスト自転車、大型バイクまで対応。すべての車両に屋根付きの専用スペースを確保しています。</p>
+            </div>
+            <div class="card">
+                <h3>24hゴミステーション</h3>
+                <p>曜日を気にせずいつでもゴミ出し可能。コンクリート製の堅牢な造りで、カラスや猫による被害を防ぎます。</p>
+            </div>
+            <div class="card">
+                <h3>憩いの「チビ公」</h3>
+                <p>団地の中心には、懐かしの砂場と、最新の「大人向け健康遊具」を設置。多世代交流の拠点となります。</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="access">
+        <h2>3. 周辺施設</h2>
+        <table class="price-table">
+            <thead>
+                <tr>
+                    <th>施設名</th>
+                    <th>詳細・利便性</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>夢洲駅（地下鉄）</strong></td>
+                    <td>改札から団地までデッキ直結。本町・梅田方面へのアクセスも抜群。</td>
+                </tr>
+                <tr>
+                    <td><strong>駅前ショッピングモール</strong></td>
+                    <td>深夜まで営業のスーパー、100均、ドラッグストア、飲食店が集合。</td>
+                </tr>
+                <tr>
+                    <td><strong>フェリーターミナル</strong></td>
+                    <td>神戸、関空、南港へ。ベイエリアならではの「船通勤」も可能です。</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section id="rent">
+        <h2>4. モデル家賃一覧</h2>
+        <table class="price-table">
+            <thead>
+                <tr>
+                    <th>タイプ</th>
+                    <th>広さ</th>
+                    <th>想定家賃（共益費込）</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>スタンダード 1LDK</td>
+                    <td>42㎡</td>
+                    <td><strong>52,000円</strong></td>
+                </tr>
+                <tr>
+                    <td>ファミリー 2LDK</td>
+                    <td>58㎡</td>
+                    <td><strong>65,000円</strong></td>
+                </tr>
+                <tr>
+                    <td>プレミアム 3LDK</td>
+                    <td>75㎡</td>
+                    <td><strong>78,000円</strong></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <a href="#" class="cta-button" id="apply-btn">入居待ち登録・資料請求</a>
+</div>
+
+<footer>
+    <p>&copy; 2026 夢洲住宅供給機構 / Yumeshima New Town Project</p>
+    <p style="margin-top: 10px; font-size: 0.7rem;">※このサイトは架空のプロジェクトです。</p>
+</footer>
+
+<script>
+    // スライドショーの制御
+    const slides = document.querySelectorAll('.slide');
+    let currentSlide = 0;
+
+    function nextSlide() {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.add('active');
+    }
+
+    // 4秒ごとに切り替え
+    setInterval(nextSlide, 4000);
+
+    // 入居ボタンのアラート
+    document.getElementById('apply-btn').addEventListener('click', function(e) {
+        e.preventDefault();
+        alert('【夢洲団地 入居センター】\nただいま第1期・第2期ともに満員御礼につき、次回の空室待ち登録を受け付けています。');
+    });
+</script>
+
+</body>
+</html>
