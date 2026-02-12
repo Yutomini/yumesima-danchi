@@ -1,10 +1,10 @@
 イマイチGithubの使い方がわからん！
 ロイロのセットで！
 
-☆☆確認済み機種☆☆
-iPhone7(iOS15.8.3)
-iPhoneSE3(iOS18.3.1)
-3DS(Ver.11.17.0-50J)
-PC(Windows10 22H2)
-
-3DSで開けるのはびっくり！
+<h2>☆☆確認済み機種☆☆</h2>
+<p>iPhone7(iOS15.8.3)</P>
+<p>iPhoneSE3(iOS18.3.1)</p>
+<P>3DS(Ver.11.17.0-50J)</P>
+<p>PC(Windows10 22H2)</p>
+<p></p>
+<p>3DSで開けるのはびっくり！</p>
